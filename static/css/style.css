@@ -1,0 +1,126 @@
+*{
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+
+
+main{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../carPics/corola.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+    animation: change 20s infinite ease-in-out;
+
+}
+
+@keyframes change{
+    0%
+    {
+        /* background-image: url(../img/ford.jpg); */
+        background-image: url('../carPics/corola.jpg');
+        width: 100%;
+    }
+    20%
+    {
+        background-image: url('../carPics/spider.jpg');
+        /* background-image: url(../../carPics/streetcar.jpg); */
+        width: 100%;
+        
+
+    }
+    40%
+    {
+        background-image: url("../carPics/foxy.jpg");
+        width: 100%;
+
+    }
+    60%
+    {
+        background-image: url('../carPics/spider.jpg');
+        width: 100%;
+
+    }
+    80%
+    {
+        background-image: url('../carPics/streetcar.jpg');
+        width: 100%;
+
+    }
+    100%
+    {
+        background-image: url('../carPics/ford.jpg');
+        width: 100%;
+
+    }
+}
+
+
+
+
+main h1{
+    color: white;
+    font-size: 2.5em;
+    font-weight: bolder;
+    width: 100%;
+    letter-spacing: 2px;
+    /* background-color: rgba(0, 0, 0, 0.5); */
+}
+
+.Models ul li{
+    list-style: none;
+    display: inline-block;
+    padding: 0px 45px 0px 0px;
+    width: 500px;
+}
+.Models ul li a{
+    text-decoration: none;
+    color: white;
+    border: 1px solid wheat;
+    border-radius: 8px;
+    background-color: rgba(23, 26, 32, 0.8);
+    padding: 5px 25px 5px 25px;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+footer ul  li{
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+}
+
+@media screen and (max-width: 600px) {
+
+    .Models ul li{
+        width: 100px;
+    }
+
+    .Models ul li a{
+        font-size: 1.2ems;
+    }
+    
+    main h1{
+        font-size: 2em;    
+    }
+
+    footer{
+        font-size: 1em;
+    }
+}

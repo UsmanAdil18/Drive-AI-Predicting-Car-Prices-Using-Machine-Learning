@@ -1,0 +1,116 @@
+/* Global styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-image: url('../carPics/streetcar.jpg'); /* Replace with actual path to your image */
+    background-size: cover;
+    background-position: center;
+    margin: 0;
+    padding-top: 50px; /* Space for fixed navbar */
+}
+
+/* Main heading color fix */
+h1 {
+    color: #ffffff; /* Assuming the 'DRIVE AI' text is white */
+    text-align: center;
+    margin-top: 0;
+}
+
+/* Navbar styles */
+nav {
+    /* background-color: rgba(0, 0, 0, 0.8); Semi-transparent black */
+    color: #fff;
+    padding: 10px 20px; /* Padding for logo and nav items */
+    position: fixed; /* Fixed at the top */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10; /* High z-index to keep above other content */
+    display: flex;
+    justify-content: space-between; /* Space between logo and nav items */
+    align-items: center;
+}
+
+.logo {
+    font-size: 1.5em; /* Size of the logo */
+    font-weight: bold;
+    color: #ffffff;
+    text-decoration: none; /* No underline */
+    display: flex;
+    align-items: center;
+}
+
+nav ul {
+    list-style: none; /* No bullets for nav items */
+    display: flex; /* Horizontal layout for nav items */
+    gap: 15x; /* Space between nav items */
+    margin: 0; /* No default margin */
+    padding: 0; /* No default padding */
+}
+
+nav ul li a {
+    color: #ffffff;
+    text-decoration: none;
+    padding: 5px 10px; /* Clickable area padding */
+    transition: background-color 0.3s; /* Smooth transition for hover */
+}
+
+nav ul li a:hover {
+    background-color: #f9f9f9; /* Light background on hover */
+    color: #333; /* Dark text color on hover */
+    border-radius: 5px; /* Rounded corners on hover */
+}
+
+/* Review container styles */
+.reviews-container {
+    max-width: 1000px;
+    margin: 20px auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    position: relative;
+    z-index: 1;
+}
+
+/* Individual review styles */
+.review {
+    padding: 20px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.review h2 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.review p {
+    margin-bottom: 10px;
+    line-height: 1.5;
+}
+
+.review strong {
+    font-weight: bold;
+    color: #333;
+}
+
+/* Responsive layout */
+@media (max-width: 768px) {
+    .reviews-container {
+        grid-template-columns: 1fr;
+    }
+
+    nav ul {
+        flex-direction: column;
+        align-items: center;
+        padding-top: 10px; /* Add a little space below the logo */
+    }
+
+    nav ul li {
+        margin-bottom: 10px; /* Space between stacked nav items */
+    }
+}

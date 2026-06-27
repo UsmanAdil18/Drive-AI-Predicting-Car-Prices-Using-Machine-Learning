@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/nav.css">
+    <link rel="stylesheet" href="static/css/final.css">
+    <link rel="stylesheet" href="static/css/report.css">
+    
+    
+    <title>Embedded Power BI Report</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><h1>DRIVE AI</h1></div>
+            <div class="openMenu"><i class="fa fa-bars"></i></div>
+            <ul class="mainMenu">
+                <li><a href="{{url_for('index')}}" id="myBtn">Home</a></li>
+            
+                <div class="closeMenu"><i class="fa fa-times"></i></div>
+    
+            </ul>
+        </nav><!-- ----Navigation menu ends here------>
+    
+    
+    </header
+
+    <main>
+      
+
+        
+
+        <!-- Embedded Power BI report -->
+        <div class="embedded-report">
+            <iframe title="FYP Dashboard final" width="1140" height="541.25" src="https://app.powerbi.com/reportEmbed?reportId=7b27b9a5-c5ba-41d7-9714-1bc31eeb51a9&autoAuth=true&ctid=c30f50c2-7e88-47ca-89fa-6299c7d6c181" frameborder="0" allowFullScreen="true"></iframe>
+        </div>
+
+    </main>
+
+    <script src="js/nav.js"></script>
+</body>
+</html>

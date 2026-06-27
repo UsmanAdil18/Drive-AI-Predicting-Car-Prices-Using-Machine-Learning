@@ -1,0 +1,275 @@
+@import url('https://fonts.googleapis.com/css2?family=Praise&display=swap');
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  
+  }
+
+  body  {
+    font-family: 'Roboto', sans-serif;  }
+  
+  .logo h1{
+    /* border: 2px solid white; */
+    border-radius: 10px;
+    font-family: 'Praise', cursive;
+    font-size: 1.5em;
+    font-weight: bolder;
+    color :#D3D3D3;
+    text-shadow: 2px 2px 3px #808080;
+  }
+  nav {
+    position: absolute;
+    width: 100%;
+    color: #fff;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+  nav .mainMenu {
+    display: flex;
+    list-style: none;
+  }
+  
+  nav ul li{
+    padding: 5px;
+  }
+  nav .mainMenu li a {
+    display: inline-block;
+    padding: 5px;
+    text-decoration: none;
+    text-transform: uppercase;
+
+    color :#D3D3D3;
+    text-shadow: 2px 2px 3px #808080;
+    font-family: 'Roboto', sans-serif;
+    font-size: 1.1em;
+    font-weight: bold;
+  }
+  
+  nav .mainMenu li i{
+    padding: 5px;
+  }
+  
+  nav .mainMenu li a:hover {
+    /* background-color: #fff; */
+    background-color: #808080;
+    color: #000;
+    border-radius: 8px;
+    font-size: 1em;
+    transition: 0.3s ease-out;   
+  }
+  nav .openMenu {
+    font-size: 2rem;
+    margin: 20px;
+    display: none;
+    cursor: pointer;
+  }
+  nav .mainMenu .closeMenu  {
+    font-size: 2rem;
+    display: none;
+    cursor: pointer;
+  }
+  nav .logo {
+    margin: 6px;
+    font-size: 25px;
+    cursor: pointer;
+  }
+  @media(max-width: 800px){
+  
+    nav {
+      background: #000;
+      color: #fff;
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+    }
+    nav .mainMenu {
+        height: 100vh;
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        z-index: 10;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background: #000;
+        transition: top 1s ease;
+        display: none;
+    }
+    nav .mainMenu .closeMenu {
+        display: block;
+        position: absolute;
+        top: 20px;
+        right: 20px;
+  
+    }
+    nav .openMenu {
+        display: block;
+    }
+    nav .mainMenu li a:hover {
+      background-color: #fff;
+      color: #000;
+        font-size: 1.6rem;
+    }
+    .icons i {
+        display: inline-block;
+        padding: 12px;
+    }
+  }
+  
+  
+  
+  main{
+   width: 100%;
+   height: 100vh;
+   background-image: url('../carPics/spider.jpg');
+   background-repeat: no-repeat;
+   background-size: 100%;
+   background-position: 100%;
+   animation: change 20s infinite ease-in-out;
+   display: grid;
+   justify-content: center;
+   align-items: center;
+   align-content: center;
+   grid-gap: 30%;
+   text-align: center;
+}
+
+
+main h1{
+  color :#D3D3D3;
+  text-shadow: 2px 2px 3px black;
+  /* color: white; */
+  font-family: 'Roboto', sans-serif;
+  font-size: 3em;
+  font-weight: bolder;
+  width: 100%;
+  letter-spacing: 2px;
+}
+@keyframes change{
+  0%
+  {
+      background-image: url('../carPics/spider.jpg');
+      width: 100%;
+  }
+  20%
+  {
+      background-image: url('../carPics/corola.jpg');
+      width: 100%;
+  }
+  40%
+  {
+      background-image: url('../carPics/foxy.jpg');
+      width: 100%;
+  }
+  60%
+  {
+      background-image: url('../carPics/civic.jpg');
+      width: 100%;
+
+  }
+  80%
+  {
+      background-image: url('../carPics/streetcar.jpg');
+      width: 100%;
+
+  }
+  100%
+  {
+      background-image: url('../carPics/ford.jpg');
+      width: 100%;
+
+  }
+}
+
+
+.Models ul li{
+  
+  margin-top: 7rem;
+  list-style: none;
+  display: inline-block;
+  margin-left: 5px;
+  margin-right: 5px;
+  cursor: pointer;
+  /* display: flex;
+  flex-direction: column;
+  justify-content: space-between; */
+  padding: 10px;
+  /* background-color: rgba(0, 0, 0, 1.0); */
+  /* background-color: #0b5ed7; */
+     background: linear-gradient(to top right, rgb(97, 33, 97), rgb(2, 63, 83), rgb(45, 143, 175));
+     /* background: linear-gradient(to right, #4e54c8, #8f94fb, #4e54c8); */
+
+  border: transparent;
+  border-radius: 10px;
+  width: 250px;
+  
+}
+.Models ul li a{
+  text-decoration: none;
+  color: white;
+}
+
+
+
+.footer{
+  width: 100%;
+  position: absolute;
+  top: 90%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: center;
+}
+
+.copywrights h3{
+  color: #fff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 1em;
+  font-weight: normal;
+}
+
+.social li{
+  list-style: none;
+  display: inline-block;
+  padding: 10px;
+  color: #fff;
+}
+
+
+.ModelFrom{
+  width: auto;
+}
+
+
+@media(max-width: 800px){
+  main{
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+   
+ }
+  main h1{
+
+    font-size: 2.5em;
+    
+  }
+
+
+  .Models ul li{
+    width: 150px;
+    padding: 10px;  
+  }
+
+  .footer{
+    top: 100%;
+
+  }
+  .copywrights h3{
+    font-size: 0.8em;
+  }
+  
+}

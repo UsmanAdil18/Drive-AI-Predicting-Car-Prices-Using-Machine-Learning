@@ -1,0 +1,141 @@
+/* Reset default browser styles and set global styles */
+body, h1, input, select, textarea, button {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url('../carPics/streetcar.jpg'); /* Replace with actual path to your image */
+  background-size: cover;
+  background-position: center;
+  padding-top: 60px; /* Space for fixed navbar */
+}
+
+/* Navbar styles */
+nav {
+  /* background-color: rgba(0, 0, 0, 0.8); Semi-transparent black */
+  color: #fff;
+  padding: 10px 20px;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 10;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.5em;
+  font-weight: bold;
+  color: #ffffff;
+  text-decoration: none;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 20px;
+}
+
+nav ul li a {
+  color: #ffffff;
+  text-decoration: none;
+  padding: 5px 10px;
+  transition: background-color 0.3s;
+}
+
+nav ul li a:hover {
+  background-color: #f9f9f9;
+  color: #333;
+  border-radius: 5px;
+}
+
+/* Main heading styles */
+h1 {
+  text-align: center;
+  color: #ffffff;
+  margin-top: 20px;
+  font-size: 52px;
+  line-height: 60px;
+  font-weight: bold;
+}
+
+/* Form styles */
+form {
+  max-width: 600px;
+  margin: 40px auto; /* Increase top margin to push form below navbar */
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 5px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 1;
+}
+
+.input, .savebutton {
+  margin-bottom: 20px;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+}
+
+select, input[type="text"], input[type="number"], textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.savebutton {
+  padding: 10px 20px;
+  font-size: 1.2em;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.savebutton:hover {
+  background-color: #555;
+}
+
+/* Error message styles */
+.error-message {
+  color: #ff0000;
+  font-size: 0.9em;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+    padding-top: 10px;
+  }
+
+  nav ul li {
+    margin-bottom: 10px;
+  }
+
+  .logo {
+    font-size: 1.2em; /* Adjust size for smaller screens */
+  }
+
+  h1 {
+    font-size: 2em; /* Adjust heading size for smaller screens */
+  }
+
+  form {
+    margin: 20px; /* Less margin for smaller screens */
+  }
+}

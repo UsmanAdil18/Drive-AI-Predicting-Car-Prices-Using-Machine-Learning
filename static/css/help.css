@@ -1,0 +1,48 @@
+
+main{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../carPics/streetcar.jpg');
+}
+
+.help-manual{
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    position: absolute;
+    top: 20%;
+    left: 2%;
+}
+
+.help-manual h1{
+    padding: 5px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 52px !important;
+    line-height: 50px;
+    font-weight: bold;
+}
+
+.help-manual p{
+    padding: 5px;
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    font-size: 2em;
+    line-height: 50px;
+    font-weight: lighter;
+}
+
+footer{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 1.2em;
+    font-weight: normal;
+}
+
+footer ul  li{
+    list-style: none;
+    display: inline-block;
+    padding: 10px;
+}

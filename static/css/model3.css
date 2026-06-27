@@ -1,0 +1,115 @@
+main{
+    width: 100%;
+    height: 100vh;
+    background-image: url('../carPics/streetcar.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom center;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+    text-align: center;
+}
+
+.ModelFrom{
+    width: 500px !important;
+    padding: 15px;
+    margin-top: 25px;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: 1px solid white;
+    border-radius: 8px;
+  
+}
+
+
+.input{
+    padding: 10px;
+}
+
+.input label{
+    font-size: 1em;
+    font-weight: lighter;
+}
+.input select {
+    width: 100%;
+    height: 50px;
+    font-size: 1em;
+    font-weight: lighter;
+    background-color: rgb(161, 156, 156);
+    color: white;
+
+}
+
+.input input{
+    width: 100%;
+    height: 50px;
+    font-size: 1em;
+    font-weight: lighter;
+    background-color: rgb(161, 156, 156);
+    color: white;
+}
+
+.btn_predictPrice button{
+    padding: 10px;
+    font-size: 1.2em;
+    font-weight: normal;
+    border-radius: 8px;
+    border: 1px solid whitesmoke;
+    background-color: black;
+    color: white;
+    cursor: pointer;
+}
+
+
+
+@media screen and (max-width: 800px) {
+
+    main{
+        height: 100%;
+    }
+
+.input{
+    padding: 5px;
+}
+
+.input label{
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.input select {
+    height: 30px;
+}
+
+.input input{
+    height: 30px;
+}
+   
+}
+
+@media screen and (max-width: 500px) {
+ 
+    .ModelFrom{
+        width: 100%;
+    }
+.input{
+    padding: 5px;
+}
+
+.input label{
+    font-size: 1em;
+    font-weight: normal;
+}
+
+.input select {
+    height: 30px;
+}
+
+.input input{
+    height: 30px;
+}
+   
+}

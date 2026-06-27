@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+   
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Car Reviews</title>
+    <link rel="stylesheet" href="static/css/nav.css">
+    <link rel="stylesheet" href="static/css/review.css"> <!-- Include your CSS file here -->
+    <link rel="stylesheet" href="static/css/final.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><h1>Drive AI</h1></div>
+            <div class="openMenu"><i class="fa fa-bars"></i></div>
+            <ul class="mainMenu">
+                <li><a href="{{url_for('index')}}" id="myBtn">Home</a></li>
+                <li></i><a href="{{url_for('model1')}}">Used Cars</a></li>
+                <li><a href="{{url_for('model2')}}" id="myBtn">Imported Cars</a></li>
+                <li><a href="{{url_for('model3')}}" id="myBtn">New Cars</a></li>
+                <li><a href="{{url_for('review')}}" id="myBtn">Reviews</a></li>
+                <li><a href= "{{url_for('report')}}" id="myBtn">Report</a></li>
+                <li><a href="{{url_for('help')}}" id="myBtn">About</a></li>
+                <!-- <li><a  href="{{url_for('report')}}"    id="myBtn">Report</a></li> -->
+                <div class="closeMenu"><i class="fa fa-times"></i></div>
+    
+            </ul>
+        </nav><!-- ----Navigation menu ends here------>
+    
+
+
+    <h1 class="name">Car Reviews</h1>
+    <form id="reviewForm"> <!-- Replace "/submit_review" with your actual form submission endpoint -->
+        <div class="input">
+            <label><b>Select the company:</b></label><br>
+            <select id="company" name="company" required>
+                {% for company in companies %}
+                <option value="{{ company }}">{{ company }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="input">
+            <label><b>Select the model:</b></label><br>
+            <select id="car_model" name="car_model" required>
+                {% for model in car_models %}
+                <option value="{{ model }}">{{ model }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="input">
+            <label><b>Select Year of Purchase:</b></label><br>
+            <select id="year" name="year" required>
+                {% for year in years %}
+                <option value="{{ year }}">{{ year }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="input">
+            <label><b>Select the Fuel Type:</b></label><br>
+            <select id="fuel_type" name="fuel_type" required>
+                {% for fuel_type in fuel_types %}
+                <option value="{{ fuel_type }}">{{ fuel_type }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="input">
+            <label><b>Write your review:</b></label><br>
+            <textarea id="review" name="review" rows="4" cols="50" required></textarea>
+        </div>
+        <div class="input">
+            <label><b>Rating:</b></label><br>
+            <input type="number" id="rating" name="rating" min="1" max="5" required>
+        </div>
+        <div class="input">
+            <button class = "savebutton" type="button" onclick="submitReview()">Submit Review</button>
+        </div>
+        <!-- <div class="input"> -->
+            <a href="{{ url_for('reviewshow') }}" id="myBtn" class="savebutton">Show Reviews</a>
+        </div>
+    </form>
+
+    <script>
+        function submitReview() {
+            var formData = new FormData(document.getElementById('reviewForm'));
+            // Send formData to your server using AJAX or fetch
+            // Example using fetch:
+            fetch('/submit_review', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => {
+                if (response.ok) {
+                    // Handle successful response (e.g., show success message)
+                    console.log('Review submitted successfully');
+                } else {
+                    // Handle error response (e.g., show error message)
+                    console.error('Failed to submit review');
+                }
+            })
+            .catch(error => {
+                // Handle network error
+                console.error('Network error:', error);
+            });
+        }
+        // function showReview() {
+        //     fetch('/reviewshow', {
+        //         method: 'GET',
+                
+        //     })
+        //     .then(response => {
+        //         if (response.ok) {
+        //             return response.json();
+        //         } else {
+        //             throw new Error('Failed to fetch review data');
+        //         }
+        //     })
+        //     .then(data => {
+        //         // Handle the response data here
+        //         console.log(data);
+        //     })
+        //     .catch(error => {
+        //         console.error('Error:', error);
+        //     });
+        // }
+
+        
+    </script>
+</body>
+</html>

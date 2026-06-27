@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/final.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Home</title>
+</head>
+<body>
+    
+<!--============================Website header starts here=============================== -->
+
+<header>
+    <nav>
+        <div class="logo"><h1>DRIVE AI</h1></div>
+        <div class="openMenu"><i class="fa fa-bars"></i></div>
+        <ul class="mainMenu">
+            <li><a href="{{url_for('index')}}" id="myBtn">Home</a></li>
+            <li><a href="{{url_for('model1')}}" id="mybtn">Used Cars</a></li>
+            <li><a href="{{url_for('model2')}}" id="myBtn">Imported Cars</a></li>
+            <li><a href="{{url_for('model3')}}" id="myBtn">New Cars</a></li>
+            <li><a href="{{url_for('analytics')}}" id="myBtn">Analytics</a></li>
+            <li><a href="{{url_for('help')}}" id="myBtn">About</a></li>
+            <div class="closeMenu"><i class="fa fa-times"></i></div>
+
+        </ul>
+    </nav><!-- ----Navigation menu ends here------>
+
+
+</header> <!-- ======= Header end -->
+
+
+    <main>
+        <div class="banner">
+            <h1>Journey Beyond Boundaries!</h1>
+        </div>
+
+        <div class="Models">
+            <ul> 
+            <li><a href="{{url_for('model3')}}">New Cars</a></li>
+            <li><a href="{{url_for('model1')}}">Used Cars</a></li>
+            <li><a href="{{url_for('model2')}}">Imported Cars</a></li>
+            </ul>      
+        </div>
+
+        <div class="footer">
+            <div class="copywrights">
+                <h3>DriveAi &copy; All Rights Reserved</h3>
+            </div>
+            <ul class="social">
+                <li><i class="fa-brands fa-facebook"></i></li>
+                <li><i class="fa-brands fa-instagram-square"></i></li>
+                <li><i class="fa-brands fa-twitter-square"></i></li>
+            </ul>
+        </div>
+    </main>
+
+    <script src="js/nav.js"></script>
+    
+</body>
+</html>

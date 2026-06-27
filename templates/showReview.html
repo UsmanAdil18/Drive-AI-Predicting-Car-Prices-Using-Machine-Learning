@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Reviews</title>
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="static/css/nav.css">
+    
+    
+    <link rel="stylesheet" href="static/css/reviewShow.css"> <!-- Include your custom CSS file here -->
+    <link rel="stylesheet" href="static/css/final.css">
+</head>
+<body>
+    <header>
+        
+            <div class="logo"><h1>DRIVE AI</h1></div>
+            <div class="openMenu"><i class="fa fa-bars"></i></div>
+            
+                <header>
+                    <nav>
+                        <!-- <div class="logo"><h1>Drive AI</h1></div> -->
+                        <div class="openMenu"><i class="fa fa-bars"></i></div>
+                        <ul class="mainMenu">
+                            <li><a href="{{url_for('index')}}" id="myBtn">Home</a></li>
+                            <li></i><a href="{{url_for('model1')}}">Used Cars</a></li>
+                            <li><a href="{{url_for('model2')}}" id="myBtn">Imported Cars</a></li>
+                            <li><a href="{{url_for('model3')}}" id="myBtn">New Cars</a></li>
+                            <li><a href="{{url_for('review')}}" id="myBtn">Reviews</a></li>
+                            <li><a href= "{{url_for('report')}}" id="myBtn">Report</a></li>
+                            <li><a href="{{url_for('help')}}" id="myBtn">About</a></li>
+                            <li><a href="{{url_for('report')}}" id="myBtn">Report</a></li>
+                            <div class="closeMenu"><i class="fa fa-times"></i></div>
+                
+                        </ul>
+                    </nav><!-- ----Navigation menu ends here------>
+                
+                
+    
+           
+       <!-- ----Navigation menu ends here------>
+    
+    
+    </header> <!-- ======= Header end -->
+    
+
+    <h1>Car Reviews</h1>
+    <div class="reviews-container">
+        {% for review in reviews %}
+        <div class="review">
+            <h2>{{ review.car_id }}</h2>
+            <p><strong>User:</strong> {{ review.user_id }}</p>
+            <p><strong>Rating:</strong> {{ review.rating }}/5</p>
+            <p>{{ review.comment }}</p>
+        </div>
+        {% endfor %}
+    </div>
+</body>
+</html>

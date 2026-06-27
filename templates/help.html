@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/nav.css">
+    <link rel="stylesheet" href="static/css/final.css">
+    <link rel="stylesheet" href="static/css/help.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+    crossorigin="anonymous"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg==" 
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo"><h1>DRIVE AI </h1></div>
+            <div class="openMenu"><i class="fa fa-bars"></i></div>
+            <ul class="mainMenu">
+                <li><a href="{{url_for('index')}}" id="myBtn">Home</a></li>
+                <li><a href="{{url_for('model1')}}"id="myBtn">Used Cars</a></li>
+                <li><a href="{{url_for('model2')}}" id="myBtn">Imported Cars</a></li>
+                <li><a href="{{url_for('model3')}}" id="myBtn">New Cars</a></li>
+                <li><a href="{{url_for('help')}}" id="myBtn">About</a></li>
+                <div class="closeMenu"><i class="fa fa-times"></i></div>
+    
+            </ul>
+        </nav><!-- ----Navigation menu ends here------>
+    
+    
+</header> <!-- ======= Header end -->
+
+<main>
+    <div class="help-manual">
+        <h1>About:</h1>
+        
+        <p>
+            All the models use authentic data to predict prices and all the prices are for tax filers 
+            as for non filers they can check the they need to pay from 10,000 to 85,000 according to 
+            the policy of government of pakistan. And all the models have accuracy greater then 78 percent 
+            and prices may vary 10 to 15 percent from market according to latest trends and economic conditions and Rupee Devaluation.</p>
+            
+            
+        <h1>Policy:</h1>
+        
+        <p>All the data is taken from authentic sources and dont use it in any criminal activities as 
+            we are then forced to take legal action according to law of pakistan</p> 
+            
+    </div>
+
+    <div class="footer">
+        <div class="copywrights">
+            <h3>DriveAi &copy; All Rights Reserved</h3>
+        </div>
+        <ul class="social">
+            <li><i class="fa-brands fa-facebook"></i></li>
+            <li><i class="fa-brands fa-instagram-square"></i></li>
+            <li><i class="fa-brands fa-twitter-square"></i></li>
+        </ul>
+    </div>
+</main>
+
+
+<script src="js/nav.js"></script>
+</body>
+</html>

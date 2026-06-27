@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="static/css/model2.css">
+    <link rel="stylesheet" href="static/css/nav.css">
+    <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+        integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+    <link rel="stylesheet" href="static/css/final.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+        integrity="sha512-9usAa10IRO0HhonpyAIVpjrylPvoDwiPUiKdWk5t3PyolY1cOd4DSE0Ga+ri4AuTroPR5aQvXU9xC6qOPnzFeg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Imported Cars</title>
+</head>
+
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <h1>DRIVE AI</h1>
+            </div>
+            <div class="openMenu"><i class="fa fa-bars"></i></div>
+            <ul class="mainMenu">
+                <li><a href="{{url_for('index')}}" id="myBtn">Home</a></li>
+                <li><a href="{{url_for('model1')}}" id="myBtn">Used Cars</a></li>
+                <li><a href="{{url_for('model2')}}" id="myBtn">Imported Cars</a></li>
+                <li><a href="{{url_for('model3')}}" id="myBtn">New Cars</a></li>
+                <li><a href="{{url_for('help')}}" id="myBtn">About</a></li>
+                <div class="closeMenu"><i class="fa fa-times"></i></div>
+
+            </ul>
+        </nav><!-- ----Navigation menu ends here------>
+
+
+    </header> <!-- ======= Header end -->
+    <main>
+        <div class="ModelFrom">
+            <h1>Imported Cars</h1>
+            <form method="post" name="Modelform">
+                <div class="input">
+                    <label><b>Select the company:</b> </label><br>
+                    <select class="selectpicker form-control" id="company" name="company" required="1"
+                        onchange="load_car_models(this.id,'car_models')">
+                        {% for company in companies %}
+                        <option value="{{ company }}">{{ company }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input">
+                    <label><b>Select the model:</b> </label><br>
+                    <select class="selectpicker form-control" id="car_models" name="car_models" required="1">
+                    </select>
+                </div>
+                <div class="input">
+                    <label><b>Select Year of Purchase:</b> </label><br>
+                    <select class="selectpicker form-control" id="year" name="year" required="1">
+                        {% for year in years %}
+                        <option value="{{ year }}">{{ year }}</option>
+                        {% endfor %}
+                    </select>
+                </div class="input">
+                <div class="input">
+                    <label><b>Select the Fuel Type:</b> </label><br>
+                    <select class="selectpicker form-control" id="fuel_type" name="fuel_type" required="1">
+                        {% for fuel in fuel_types %}
+                        <option value="{{ fuel }}">{{ fuel }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="input">
+                    <label><b>Enter the Number of Kilometres that the car has travelled:</b> </label><br>
+                    <input type="text" class="form-control" id="kilo_driven" name="kilo_driven"
+                        placeholder="Enter the kilometres driven ">
+                </div>
+                <div class="btn_predictPrice">
+                    <button onclick="send_data()">Predict Price</button>
+                </div>
+            </form>
+            <div>
+                <div class="prediction">
+                    <h4><span id="prediction"></span></h4>
+                </div>
+            </div>
+        </div>
+
+        <div class="footer">
+            <div class="copywrights">
+                <h3>DriveAi &copy; All Rights Reserved</h3>
+            </div>
+            <ul class="social">
+                <li><i class="fa-brands fa-facebook"></i></li>
+                <li><i class="fa-brands fa-instagram-square"></i></li>
+                <li><i class="fa-brands fa-twitter-square"></i></li>
+            </ul>
+        </div>
+    </main>
+
+    <script>
+
+        function load_car_models(company_id, car_model_id) {
+            var company = document.getElementById(company_id);
+            var car_model = document.getElementById(car_model_id);
+            console.log(company.value);
+            car_model.value = "";
+            car_model.innerHTML = "";
+            {% for company in companies %}
+            if (company.value == "{{ company }}") {
+                {% for model in car_models %}
+                {% if company in model %}
+
+                var newOption = document.createElement("option");
+                newOption.value = "{{ model }}";
+                newOption.innerHTML = "{{ model }}";
+                car_model.options.add(newOption);
+                {% endif %}
+                {% endfor %}
+            }
+            {% endfor %}
+        }
+
+        function form_handler(event) {
+            event.preventDefault(); // Don't submit the form normally
+        }
+        function send_data() {
+            document.querySelector('form').addEventListener("submit", form_handler);
+
+            var fd = new FormData(document.querySelector('form'));
+
+            var xhr = new XMLHttpRequest({ mozSystem: true });
+
+            xhr.open('POST', '/predict', true);
+            document.getElementById('prediction').innerHTML = "Wait! Predicting Price.....";
+            xhr.onreadystatechange = function () {
+                // if(xhr.readyState == XMLHttpRequest.DONE){
+                //     document.getElementById('prediction').innerHTML="Prediction: RS"+xhr.responseText;
+
+                // }
+                if (xhr.readyState == XMLHttpRequest.DONE) {
+                    if (xhr.responseText.startsWith("Invalid")) {
+                        // If the response starts with "Invalid", display the error message as-is:
+                        document.getElementById('prediction').innerHTML = xhr.responseText;
+                    } else {
+                        // Otherwise, prepend "Prediction: RS" to the predicted price:
+                        document.getElementById('prediction').innerHTML = "Prediction: RS " + xhr.responseText;
+                    }
+                }
+            };
+
+            xhr.onload = function () { };
+
+            xhr.send(fd);
+        }
+    </script>
+
+
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+
+    <script src="js/nav.js"></script>
+
+</body>
+
+</html>
