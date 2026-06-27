@@ -262,12 +262,12 @@ The **Report** section features a 5-tab Power BI dashboard embedded in the web a
 
 ## 👥 Team
 
-| Name |
+| Name | Seat No |
 |---|---|
-| **Muhammad Usman**
-| Muhammad Sameer Siddiqui 
-| Mirza Viraad Baig 
-| Umair Iqbal 
+| **Muhammad Usman** | **B-19102105** |
+| Muhammad Sameer Siddiqui | B-19102092 |
+| Mirza Viraad Baig | B-19102055 |
+| Umair Iqbal | B-19102103 |
 
 
 **Project Advisor:** Dr. Muhammad Saeed  
